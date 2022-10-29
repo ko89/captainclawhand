@@ -76,5 +76,12 @@ crashlytics-build.properties
 *.blend?.meta
 .DS_Store
 .vscode
+<<<<<<< Updated upstream
 *_autosave_*
 *.painter_lock*
+=======
+*.painter_lock
+*.painter_lock.meta
+*_autosave*
+
+>>>>>>> Stashed changes
