@@ -24,7 +24,12 @@ ModelImporter:
   - first:
       74: 5537215552091973870
     second: Sitzen
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skelett
+    second: {fileID: 2100000, guid: 64dc7dacfaf9545a8aee2650dede2713, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
