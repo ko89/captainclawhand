@@ -8,6 +8,8 @@ public class WaterForce : MonoBehaviour
     private Rigidbody _rigidbody;
 
     [SerializeField]
+    private float _upForceDepthTrigger = 0f;
+    [SerializeField]
     private float _upForceStrength = 450f;
     private Vector3 _upForce = Vector3.up;
 
@@ -23,7 +25,7 @@ public class WaterForce : MonoBehaviour
             return;
         }
 
-        float depth = _rigidbody.transform.position.y;
+        float depth = _rigidbody.transform.position.y - _upForceDepthTrigger;
         if (depth < 0f)
         {
             float multiplier = Mathf.Pow(depth, 2f);
