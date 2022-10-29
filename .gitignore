@@ -76,3 +76,5 @@ crashlytics-build.properties
 *.blend?.meta
 .DS_Store
 .vscode
+*_autosave_*
+*.painter_lock*
