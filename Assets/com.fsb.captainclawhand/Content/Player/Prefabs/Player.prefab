@@ -676,14 +676,6 @@ MonoBehaviour:
     m_ActionId: 9cb8be26-f9be-4fc0-8b79-61c6d89cdff9
     m_ActionName: Player/PaddleRigth[/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 18a79e46-67cf-41c6-9c8d-a5f297c16273
-    m_ActionName: Player/AttackLeft[/DualShock4GamepadHID/leftShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 77801056-7421-42d2-85bc-72dfa8884302
-    m_ActionName: Player/AttackRight[/DualShock4GamepadHID/rightShoulder]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3908304580540133077}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -870,7 +862,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3908304580850476524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1012,7 +1004,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3908304581444233430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
