@@ -12,10 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform _leftPaddleForcePoint, _rightPaddleForcePoint;
 
-
-
-
-
     [Header("Input stuff")]
     [SerializeField]
     private float _accelMultiplier = 200f;
@@ -39,11 +35,21 @@ public class PlayerController : MonoBehaviour
     private float _triggerLeftValue = 0f, _triggerRightValue = 0f;
     private float _paddleLeftTime = 0f, _paddleRightTime = 0f;
 
+    [Header("Animation stuff")]
+    [SerializeField]
+    private Animator _playerAnimator;
 
     Quaternion _gyroValue = Quaternion.identity;
     Vector3 _gyroValueRaw = Vector3.zero;
     Vector3 _accelValue = Vector3.zero;
     Vector3 _accelValueRaw = Vector3.zero;
+
+    enum Side
+    {
+        Left,
+        Right
+    }
+
 
     void Start()
     {
@@ -57,7 +63,7 @@ public class PlayerController : MonoBehaviour
         actionAccel.Enable();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (_gyroDebug != null)
         {
@@ -78,7 +84,7 @@ public class PlayerController : MonoBehaviour
             var comp = Quaternion.FromToRotation(rot * gravity, -Vector3.up);
 
             // Compensation reduction
-            comp.w *= 0.2f / Time.deltaTime;
+            comp.w *= 0.2f / Time.fixedDeltaTime;
             comp = comp.normalized;
 
             var localRotation = comp * rot;
@@ -105,28 +111,31 @@ public class PlayerController : MonoBehaviour
 
 
 
-        Paddle(_centerPoint, _leftPaddleForcePoint, _triggerLeftValue, ref _paddleLeftTime);
-        Paddle(_centerPoint, _rightPaddleForcePoint, _triggerRightValue, ref _paddleRightTime);
+        Paddle(_centerPoint, _leftPaddleForcePoint, _triggerLeftValue, ref _paddleLeftTime, Side.Left);
+        Paddle(_centerPoint, _rightPaddleForcePoint, _triggerRightValue, ref _paddleRightTime, Side.Right);
     }
 
 
 
-    private void Paddle(Transform centerPoint, Transform forcePoint, float triggerValue, ref float time)
+    private void Paddle(Transform centerPoint, Transform forcePoint, float triggerValue, ref float time, Side side)
     {
         if (_paddleStrengthCurve == null || _centerPoint == null || forcePoint == null)
             return;
 
         if (triggerValue > 0.5f)
         {
-            time += Time.deltaTime;
+            time += Time.fixedDeltaTime;
             var strength = _paddleStrengthCurve.Evaluate(time);
-
             var forcePosition = Vector3.Lerp(centerPoint.position, forcePoint.position, Mathf.Clamp01(strength) * 0.5f);
             MoveBoatByForce(forcePoint.forward * strength, forcePosition);
+
+            _playerAnimator.SetFloat(side == Side.Left ? "PaddelLinks" : "PaddelRechts", 1.0f);
         }
         else
         {
             time = 0f;
+
+            _playerAnimator.SetFloat(side == Side.Left ? "PaddelLinks" : "PaddelRechts", 0.0f);
         }
     }
 
