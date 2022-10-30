@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &813634671
 AudioSource:
@@ -159,7 +159,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1691286305
 TrailRenderer:
@@ -311,7 +311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3908304580453827634
 GameObject:
@@ -342,7 +342,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -12, y: 0, z: 0}
 --- !u!1 &3908304580540133075
 GameObject:
@@ -490,6 +490,30 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9cb8be26-f9be-4fc0-8b79-61c6d89cdff9
     m_ActionName: Player/PaddleRigth[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18a79e46-67cf-41c6-9c8d-a5f297c16273
+    m_ActionName: Player/AttackLeft[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77801056-7421-42d2-85bc-72dfa8884302
+    m_ActionName: Player/AttackRight[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3908304580540133077}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: HandleAttackButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8fac12a2-ee41-454b-90fe-bde83aee0a03
+    m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -512,7 +536,6 @@ MonoBehaviour:
   _leftPaddleForcePoint: {fileID: 3908304580550739854}
   _rightPaddleForcePoint: {fileID: 3908304580453827637}
   _accelMultiplier: 200
-  _positionLerpSpeed: 0.9
   _gyroDebug: {fileID: 0}
   _gyroDebugMultiplier: 1
   _paddleStrengthCurve:
@@ -557,6 +580,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _attackTargetPosition: {fileID: 3908304581444233417}
+  _attackInputPositionLerpSpeed: 0.9
   _playerAnimator: {fileID: 7446565536712458090}
   _playerSource: {fileID: 813634671}
   _paddleSounds: {fileID: 11400000, guid: 6a3ca814f86dd9340aba31dce0ecb724, type: 2}
@@ -606,7 +631,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -12, y: 0, z: 0}
 --- !u!1 &3908304580850476524
 GameObject:
@@ -626,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3908304580850476527
 Transform:
   m_ObjectHideFlags: 0
@@ -634,14 +659,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3908304580850476524}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70124036, w: 0.712925}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.1, y: 5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.053}
+  m_Father: {fileID: 3908304581444233417}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!33 &3908304580850476512
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -736,7 +761,6 @@ Transform:
   m_Children:
   - {fileID: 3908304581600422933}
   - {fileID: 3908304581444233417}
-  - {fileID: 3908304580850476527}
   - {fileID: 3582524659642705168}
   - {fileID: 5081421449492841468}
   - {fileID: 3908304580550739854}
@@ -766,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3908304581444233417
 Transform:
   m_ObjectHideFlags: 0
@@ -775,10 +799,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3908304581444233430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.264, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3908304580850476527}
   m_Father: {fileID: 3908304581369235102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1101,7 +1126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3908304581369235102}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3908304580582687483
 PrefabInstance:
@@ -1113,7 +1138,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 95f5451c42f464768841e7432721c662,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95f5451c42f464768841e7432721c662,
         type: 3}
@@ -1221,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 10eeae97dadfa4e568bac12cec4b0e08,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 10eeae97dadfa4e568bac12cec4b0e08,
         type: 3}

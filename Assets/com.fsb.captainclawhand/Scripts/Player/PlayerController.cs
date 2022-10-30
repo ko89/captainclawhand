@@ -15,21 +15,32 @@ public class PlayerController : MonoBehaviour
     [Header("Input stuff")]
     [SerializeField]
     private float _accelMultiplier = 200f;
-    [SerializeField]
-    private float _positionLerpSpeed = 0.9f;
+    
     [SerializeField]
     private Transform _gyroDebug;
     [SerializeField]
     private float _gyroDebugMultiplier = 1f;
 
-    private float _positionOffset = 0f;
+    
+    private Quaternion _gyroValue = Quaternion.identity;
+    private Vector3 _gyroValueRaw = Vector3.zero;
+    private Vector3 _accelValue = Vector3.zero;
+    private Vector3 _accelValueRaw = Vector3.zero;
+    private bool _attackActive;
 
-
+    [Header("Paddle stuff")]
     [SerializeField]
     private AnimationCurve _paddleStrengthCurve;
 
     private float _triggerLeftValue = 0f, _triggerRightValue = 0f;
     private float _paddleLeftTime = 0f, _paddleRightTime = 0f;
+
+    [Header("Attck stuff")]
+    [SerializeField]
+    private Transform _attackTargetPosition;
+    [SerializeField]
+    private float _attackInputPositionLerpSpeed = 0.9f;
+    private float _attackInputPosition = 0f;
 
     [Header("Animation stuff")]
     [SerializeField]
@@ -42,10 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioFXSource _swooshSounds;
 
-    Quaternion _gyroValue = Quaternion.identity;
-    Vector3 _gyroValueRaw = Vector3.zero;
-    Vector3 _accelValue = Vector3.zero;
-    Vector3 _accelValueRaw = Vector3.zero;
+   
 
     enum Side
     {
@@ -66,7 +74,23 @@ public class PlayerController : MonoBehaviour
         actionAccel.Enable();
     }
 
-    void FixedUpdate()
+    private void Update()
+    {
+        if (_attackActive)
+        {
+            _attackInputPosition += _accelValue.x;
+            _attackInputPosition = Mathf.Lerp(0f, _attackInputPosition, _attackInputPositionLerpSpeed);
+
+            if (_attackTargetPosition != null)
+            {
+                var localPosition = _attackTargetPosition.localPosition;
+                localPosition.x = _attackInputPosition;
+                _attackTargetPosition.localPosition = localPosition;
+            }
+        }
+    }
+
+    private void FixedUpdate()
     {
         if (_gyroDebug != null)
         {
@@ -161,6 +185,14 @@ public class PlayerController : MonoBehaviour
     public void HandlePaddleRight(InputAction.CallbackContext context)
     {
         _triggerRightValue = context.ReadValue<float>();
+    }
+
+    public void HandleAttackButton(InputAction.CallbackContext context)
+    {
+        _attackActive = context.ReadValue<float>() > 0.1f;
+
+        if (_attackTargetPosition != null)
+            _attackTargetPosition.gameObject.SetActive(_attackActive);
     }
 
     public void HandleGyro(InputAction.CallbackContext context)

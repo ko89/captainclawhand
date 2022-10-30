@@ -24,7 +24,17 @@ ModelImporter:
   - first:
       74: 2710117525962090432
     second: BeugVor
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paddel
+    second: {fileID: 2100000, guid: 79ecaf0a8313b4448b43c87446f81a70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skelett
+    second: {fileID: 2100000, guid: 64dc7dacfaf9545a8aee2650dede2713, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
