@@ -17,6 +17,9 @@ public class WaterForce : MonoBehaviour
     private float _levelStrength = 1f;
     private Vector3 _levelUpReference = new Vector3(0f, 1f, 0f);
 
+    [SerializeField]
+    private float _downspeedAntiForce = 0.2f;
+
     private void Update()
     {
         if (_rigidbody == null)
@@ -33,7 +36,7 @@ public class WaterForce : MonoBehaviour
             
             //Velocity-based drag (reduces y speed when under-water)
             float downSpeed = _rigidbody.velocity.y;
-            _rigidbody.AddForce(new Vector3(0, -downSpeed * 0.2f, 0), ForceMode.VelocityChange);
+            _rigidbody.AddForce(new Vector3(0, -downSpeed * _downspeedAntiForce * Time.deltaTime, 0), ForceMode.VelocityChange);
         }
 
 

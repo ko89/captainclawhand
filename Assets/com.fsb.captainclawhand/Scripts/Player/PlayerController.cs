@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody _rigidbody;
     [SerializeField]
+    private Transform _centerPoint;
+    [SerializeField]
     private Transform _leftPaddleForcePoint, _rightPaddleForcePoint;
 
 
@@ -103,22 +105,24 @@ public class PlayerController : MonoBehaviour
 
 
 
-        Paddle(_leftPaddleForcePoint, _triggerLeftValue, ref _paddleLeftTime);
-        Paddle(_rightPaddleForcePoint, _triggerRightValue, ref _paddleRightTime);
+        Paddle(_centerPoint, _leftPaddleForcePoint, _triggerLeftValue, ref _paddleLeftTime);
+        Paddle(_centerPoint, _rightPaddleForcePoint, _triggerRightValue, ref _paddleRightTime);
     }
 
 
 
-    private void Paddle(Transform forcePoint, float triggerValue, ref float time)
+    private void Paddle(Transform centerPoint, Transform forcePoint, float triggerValue, ref float time)
     {
-        if (_paddleStrengthCurve == null)
+        if (_paddleStrengthCurve == null || _centerPoint == null || forcePoint == null)
             return;
 
         if (triggerValue > 0.5f)
         {
             time += Time.deltaTime;
             var strength = _paddleStrengthCurve.Evaluate(time);
-            MoveBoatByForce(forcePoint, strength);
+
+            var forcePosition = Vector3.Lerp(centerPoint.position, forcePoint.position, Mathf.Clamp01(strength) * 0.5f);
+            MoveBoatByForce(forcePoint.forward * strength, forcePosition);
         }
         else
         {
@@ -126,10 +130,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void MoveBoatByForce(Transform t, float strength)
+    private void MoveBoatByForce(Vector3 direction, Vector3 worldPoint)
     {
-        if (t != null && _rigidbody != null)
-            _rigidbody.AddForceAtPosition(strength * t.forward, t.position);
+        if (_rigidbody != null)
+            _rigidbody.AddForceAtPosition(direction, worldPoint);
     }
     public void HandlePaddleLeft(InputAction.CallbackContext context)
     {
