@@ -38,6 +38,13 @@ public class PlayerController : MonoBehaviour
     [Header("Animation stuff")]
     [SerializeField]
     private Animator _playerAnimator;
+    [Header("Sound stuff")]
+    [SerializeField]
+    private AudioSource _playerSource;
+    private AudioFXSource _paddleSounds;
+    private AudioFXSource _swooshSounds;
+
+
 
     Quaternion _gyroValue = Quaternion.identity;
     Vector3 _gyroValueRaw = Vector3.zero;

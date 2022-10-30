@@ -10,7 +10,9 @@ public class ClawIKController : MonoBehaviour
     protected Animator animator;
 
     public bool ikActive = false;
-    public Transform rightHandObj = null;
+    public Transform rightHandObj = null; 
+    public Transform leftHandObj = null;
+
     public Transform lookObj = null;
 
     void Start()
