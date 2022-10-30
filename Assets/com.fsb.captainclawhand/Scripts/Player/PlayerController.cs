@@ -26,10 +26,6 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField]
-    private float _paddleStrengtIncrease = 1f;
-    [SerializeField]
-    private float _paddleStrengthMax = 5f;
-    [SerializeField]
     private AnimationCurve _paddleStrengthCurve;
 
     private float _triggerLeftValue = 0f, _triggerRightValue = 0f;
@@ -41,10 +37,10 @@ public class PlayerController : MonoBehaviour
     [Header("Sound stuff")]
     [SerializeField]
     private AudioSource _playerSource;
+    [SerializeField]
     private AudioFXSource _paddleSounds;
+    [SerializeField]
     private AudioFXSource _swooshSounds;
-
-
 
     Quaternion _gyroValue = Quaternion.identity;
     Vector3 _gyroValueRaw = Vector3.zero;
@@ -131,6 +127,12 @@ public class PlayerController : MonoBehaviour
 
         if (triggerValue > 0.5f)
         {
+            if(time == 0)
+            {
+                _paddleSounds.PlayOneShot(_playerSource);
+            }
+
+
             time += Time.fixedDeltaTime;
             var strength = _paddleStrengthCurve.Evaluate(time);
             var forcePosition = Vector3.Lerp(centerPoint.position, forcePoint.position, Mathf.Clamp01(strength) * 0.5f);
