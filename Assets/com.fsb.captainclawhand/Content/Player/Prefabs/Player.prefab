@@ -948,10 +948,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3908304580540133079}
-  _upForceDepthTrigger: 1
-  _upForceStrength: 500
+  _upForceDepthTrigger: 1.2
+  _upForceStrength: 400
+  _downspeedAntiForce: 0
   _levelStrength: 50
-  _downspeedAntiForce: 0.5
+  _dampenFactor: 0.8
+  _adjustFactor: 0.5
 --- !u!1 &3908304581600422930
 GameObject:
   m_ObjectHideFlags: 0
