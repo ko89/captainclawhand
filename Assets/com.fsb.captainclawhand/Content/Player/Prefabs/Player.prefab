@@ -676,14 +676,6 @@ MonoBehaviour:
     m_ActionId: 9cb8be26-f9be-4fc0-8b79-61c6d89cdff9
     m_ActionName: Player/PaddleRigth[/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 18a79e46-67cf-41c6-9c8d-a5f297c16273
-    m_ActionName: Player/AttackLeft[/DualShock4GamepadHID/leftShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 77801056-7421-42d2-85bc-72dfa8884302
-    m_ActionName: Player/AttackRight[/DualShock4GamepadHID/rightShoulder]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3908304580540133077}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -699,6 +691,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8fac12a2-ee41-454b-90fe-bde83aee0a03
     m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9021398168468590727}
+        m_TargetAssemblyTypeName: PlayerData, Assembly-CSharp
+        m_MethodName: KillPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f259c470-14e5-4ca0-92da-bcc3f97a5972
+    m_ActionName: Player/Quit[/DualShock4GamepadHID/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
