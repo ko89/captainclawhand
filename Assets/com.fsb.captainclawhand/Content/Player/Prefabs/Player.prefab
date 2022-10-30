@@ -1301,10 +1301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e1d4db2c03f6440a9219d68f3fb33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 0}
+  _playerData: {fileID: 9021398168468590727}
   _playerUp: {fileID: 1068705821285992623}
-  _fillSpeed: 1
-  _fillThreshold: 0.5
+  _fillSpeed: 10
+  _fillThreshold: 0.75
 --- !u!1 &7804965729953433253
 GameObject:
   m_ObjectHideFlags: 0
