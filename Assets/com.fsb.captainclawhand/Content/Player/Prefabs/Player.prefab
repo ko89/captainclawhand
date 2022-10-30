@@ -773,6 +773,7 @@ MonoBehaviour:
   _paddleSounds: {fileID: 11400000, guid: 6a3ca814f86dd9340aba31dce0ecb724, type: 2}
   _swooshSounds: {fileID: 11400000, guid: 5c3ce255f593dfd4f8843a8c1f1e8478, type: 2}
   _waveSounds: {fileID: 11400000, guid: 2f7783159aa9f2c45a8c52f9b9d9ad72, type: 2}
+  _playerData: {fileID: 9021398168468590727}
 --- !u!54 &3908304580540133079
 Rigidbody:
   m_ObjectHideFlags: 0

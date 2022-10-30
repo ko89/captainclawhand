@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private float _triggerLeftValue = 0f, _triggerRightValue = 0f;
     private float _paddleLeftTime = 0f, _paddleRightTime = 0f;
 
-    [Header("Attck stuff")]
+    [Header("Attack stuff")]
     [SerializeField]
     private Transform _attackTargetPosition;
     [SerializeField]
@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
     private AudioFXSource _swooshSounds;
     [SerializeField]
     private AudioFXSource _waveSounds;
+
+
+    public PlayerData _playerData;
 
 
     enum Side
