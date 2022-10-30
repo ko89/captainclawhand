@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "Sounds", menuName = "ScriptableObjects/AudioFXSource", order = 1)]
 public class AudioFXSource : ScriptableObject
 {
     public AudioClip[] audioClips;
+    public float volume0 = 1;
+    public float volume1 = 1;
 
-    public void PlayRandomClip()
+    public float pitch0 = 1;
+    public float pitch1 = 1;
+
+
+    public void PlayOneShot(AudioSource source)
     {
-        audioClips[audioClips.Length()]
+        var clip = audioClips[Random.Range(0, audioClips.Length)];
+        var volume = Random.Range(volume0, volume1);
+        var pitch = Random.Range(pitch0, pitch1);
+
+        source.pitch = pitch;
+        source.PlayOneShot(clip, volume);
     }
 }
