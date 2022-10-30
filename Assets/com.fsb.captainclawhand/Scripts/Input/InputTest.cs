@@ -41,7 +41,7 @@ public class InputTest : MonoBehaviour
             }
             transform.rotation *= DS4.getRotation(4000 * Time.deltaTime);
 
-
+#if false
             var accel = DS4.getAccelration(_accelMultiplier * Time.deltaTime);
             _positionOffset += accel.x;
             _positionOffset = Mathf.Lerp(0f, _positionOffset, _positionLerpSpeed);
@@ -49,6 +49,7 @@ public class InputTest : MonoBehaviour
             var localPosition = transform.localPosition;
             localPosition.x = _positionOffset;
             transform.localPosition = localPosition;
+#endif
         }
     }
 }
