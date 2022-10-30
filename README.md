@@ -19,6 +19,6 @@ Die Legende besagte, konnte nur der gleißende Lotwurz gegen einen solchen Gegne
 ### Steuerung:
 - Paddeln (im Wasser): Trigger-Tasten links und rechts. (Lange drücken verlangsamt!)
 
-- Paddeln (als Angriff): X-Button gedrückt halten und Gamepad nach links und rechts schütteln 
+- Paddeln (als Angriff): X-Button gedrückt halten und Gamepad nach links und rechts schütteln (Achtung: Gyro geht nur wenn Gamepad mit Kabel angeschlossen ist)
 
 - Paddlen (Beenden): Alt+F4 oder CMD+Q

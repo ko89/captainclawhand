@@ -44,4 +44,9 @@ public class PlayerData : MonoBehaviour
     {
         get { return _fillCapacity; }
     }
+
+    public void KillPlayer()
+    {
+        Health = 0f;
+    }
 }
