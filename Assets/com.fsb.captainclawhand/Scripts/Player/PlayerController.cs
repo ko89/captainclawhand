@@ -26,10 +26,6 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField]
-    private float _paddleStrengtIncrease = 1f;
-    [SerializeField]
-    private float _paddleStrengthMax = 5f;
-    [SerializeField]
     private AnimationCurve _paddleStrengthCurve;
 
     private float _triggerLeftValue = 0f, _triggerRightValue = 0f;
