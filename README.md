@@ -20,3 +20,5 @@ Die Legende besagte, konnte nur der gleißende Lotwurz gegen einen solchen Gegne
 - Paddeln (im Wasser): Trigger-Tasten links und rechts. (Lange drücken verlangsamt!)
 
 - Paddeln (als Angriff): X-Button gedrückt halten und Gamepad nach links und rechts schütteln 
+
+- Paddlen (Beenden): Alt+F4 oder CMD+Q
