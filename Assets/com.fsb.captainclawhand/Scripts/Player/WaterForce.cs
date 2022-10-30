@@ -54,7 +54,7 @@ public class WaterForce : MonoBehaviour
             var upCenter = _rigidbody.transform.position + _levelUpReference;
             var forceDirection = upCenter - forcePosition;
 
-            Debug.Log($"<color=\"green\">levelStrength: {levelStrength}</color>");
+            //Debug.Log($"<color=\"green\">levelStrength: {levelStrength}</color>");
 
             _rigidbody.AddForceAtPosition(forceDirection * levelStrength * Time.fixedDeltaTime * _levelStrength, forcePosition);
         }

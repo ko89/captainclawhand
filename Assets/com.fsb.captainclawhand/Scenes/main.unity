@@ -2981,7 +2981,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 28501044}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &813634671
 AudioSource:
@@ -6799,6 +6799,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3908304580540133077, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: _paddleSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a3ca814f86dd9340aba31dce0ecb724,
+        type: 2}
+    - target: {fileID: 3908304580540133077, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: _playerSource
+      value: 
+      objectReference: {fileID: 813634671}
+    - target: {fileID: 3908304580540133077, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: _swooshSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c3ce255f593dfd4f8843a8c1f1e8478,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c831a0e170dfd84099c5774e874e75d, type: 3}
 --- !u!114 &4687803696582657149 stripped
