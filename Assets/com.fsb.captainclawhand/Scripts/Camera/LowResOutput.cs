@@ -26,7 +26,13 @@ public class LowResOutput : MonoBehaviour
             _camera.targetTexture = _rt;
 
         if (_rawImage != null)
-        _rawImage.texture = _rt;
+        {
+            _rawImage.texture = _rt;
+
+            var canvas = _rawImage.GetComponentInParent<Canvas>(true);
+            if (canvas != null)
+                canvas.gameObject.SetActive(true);
+        }
     }
 
     private void OnDestroy()
