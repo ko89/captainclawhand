@@ -1,6 +1,10 @@
 # Captain Clawhand
 ## Die Jagd auf den Lotwurz
 
+Entstanden beim 3m5 Gamejam im November 2022
+
+![Ein Skelett paddelt](./screenshot.png "Screenshot")
+
 ### Was bisher geschah:
 Nach seiner katastrophalen letzten Mission gegen die Repressionspolitik Neu-Ober-Unter-Nebengauerns hatte mittzwanziger Kapitän Klauenhand auf dem Vierkanthof von Missionschef Schrantzenhuber Unterschlupf erhalten.
 Eine lauwarme Wurstbrühe und ein Dach über dem Kopf halfen seinen Ribonukleoprotein-Haushalt wieder auf Pluspolung zu bringen.
