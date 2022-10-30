@@ -13,12 +13,22 @@ public class WaterForce : MonoBehaviour
     private float _upForceStrength = 450f;
     private Vector3 _upForce = Vector3.up;
 
+    
+
+    [SerializeField]
+    private float _downspeedAntiForce = 0.2f;
+
+    [Header("V2")]
     [SerializeField]
     private float _levelStrength = 1f;
     private Vector3 _levelUpReference = new Vector3(0f, 1f, 0f);
 
+
+    [Header("v3")]
     [SerializeField]
-    private float _downspeedAntiForce = 0.2f;
+    private float _dampenFactor = 0.8f;
+    [SerializeField]
+    private float _adjustFactor = 0.5f;
 
     private void FixedUpdate()
     {
@@ -31,12 +41,18 @@ public class WaterForce : MonoBehaviour
         float depth = _rigidbody.transform.position.y - _upForceDepthTrigger;
         if (depth < 0f)
         {
-            float multiplier = Mathf.Pow(depth, 2f);
-            _rigidbody.AddForce(_upForce * Time.fixedDeltaTime * _upForceStrength * multiplier, ForceMode.Force);
+            if (_upForceStrength > 0f)
+            {
+                float multiplier = Mathf.Pow(depth, 2f);
+                _rigidbody.AddForce(_upForce * Time.fixedDeltaTime * _upForceStrength * multiplier, ForceMode.Force);
+            }
 
-            //Velocity-based drag (reduces y speed when under-water)
-            float downSpeed = _rigidbody.velocity.y;
-            _rigidbody.AddForce(new Vector3(0, -downSpeed * _downspeedAntiForce * Time.fixedDeltaTime, 0), ForceMode.VelocityChange);
+            if (_downspeedAntiForce > 0f)
+            {
+                //Velocity-based drag (reduces y speed when under-water)
+                float downSpeed = _rigidbody.velocity.y;
+                _rigidbody.AddForce(new Vector3(0, -downSpeed * _downspeedAntiForce * Time.fixedDeltaTime, 0), ForceMode.VelocityChange);
+            }
         }
 
 
@@ -66,12 +82,8 @@ public class WaterForce : MonoBehaviour
         Vector3 axis;
         float angle;
         deltaQuat.ToAngleAxis(out angle, out axis);
-
-        float dampenFactor = 0.8f; // this value requires tuning
-        _rigidbody.AddTorque(-_rigidbody.angularVelocity * dampenFactor, ForceMode.Acceleration);
-
-        float adjustFactor = 0.5f; // this value requires tuning
-        _rigidbody.AddTorque(axis.normalized * angle * adjustFactor, ForceMode.Acceleration);
+        _rigidbody.AddTorque(-_rigidbody.angularVelocity * _dampenFactor, ForceMode.Acceleration);
+        _rigidbody.AddTorque(axis.normalized * angle * _adjustFactor, ForceMode.Acceleration);
 
 
 
