@@ -111,14 +111,15 @@ sealed class GyroInputTester : MonoBehaviour
         // Update
         transform.localRotation = comp * rot;
 
+#if false
         _positionOffset += _accelValue.x;
         _positionOffset = Mathf.Lerp(0f, _positionOffset, _positionLerpSpeed);
 
         var localPosition = transform.localPosition;
         localPosition.x = _positionOffset;
         transform.localPosition = localPosition;
-
+#endif
     }
 
-    #endregion
+#endregion
 }

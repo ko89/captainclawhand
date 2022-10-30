@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Gyro",
-                    "type": "Button",
-                    "id": "b1c9bf8f-1620-4acf-8745-60d16b8d345b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -300,17 +291,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "PaddleRigth",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3965e717-3ba4-4ff8-a597-2995f696ad34",
-                    "path": "gyro",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Gyro",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
