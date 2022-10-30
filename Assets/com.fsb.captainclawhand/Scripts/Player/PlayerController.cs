@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour
                 _attackTargetPosition.localPosition = localPosition;
             }
         }
+        _playerAnimator.SetFloat("LeanX", _attackTargetPosition.localPosition.x);
+        _playerAnimator.SetFloat("LeanZ", _attackTargetPosition.localPosition.z);
     }
 
     private void FixedUpdate()
@@ -193,6 +195,8 @@ public class PlayerController : MonoBehaviour
 
         if (_attackTargetPosition != null)
             _attackTargetPosition.gameObject.SetActive(_attackActive);
+
+        _playerAnimator.SetFloat("Attack", _attackActive ? 1.0f : 0.0f);
     }
 
     public void HandleGyro(InputAction.CallbackContext context)
