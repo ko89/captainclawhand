@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _attackInputPositionLerpSpeed = 0.9f;
     private float _attackInputPosition = 0f;
+    [SerializeField]
+    private Rigidbody _attackRigidBody;
 
     [Header("Animation stuff")]
     [SerializeField]
@@ -52,8 +54,9 @@ public class PlayerController : MonoBehaviour
     private AudioFXSource _paddleSounds;
     [SerializeField]
     private AudioFXSource _swooshSounds;
+    [SerializeField]
+    private AudioFXSource _waveSounds;
 
-   
 
     enum Side
     {
@@ -142,6 +145,13 @@ public class PlayerController : MonoBehaviour
 
         Paddle(_centerPoint, _leftPaddleForcePoint, _triggerLeftValue, ref _paddleLeftTime, Side.Left);
         Paddle(_centerPoint, _rightPaddleForcePoint, _triggerRightValue, ref _paddleRightTime, Side.Right);
+
+        CheckSwing(_attackRigidBody, _attackActive);
+    
+        int randomWave = Random.Range(0, 90);
+        if (randomWave == 0)
+            _waveSounds.PlayOneShot(_playerSource);
+
     }
 
 
@@ -172,6 +182,27 @@ public class PlayerController : MonoBehaviour
 
             _playerAnimator.SetFloat(side == Side.Left ? "PaddelLinks" : "PaddelRechts", 0.0f);
         }
+    }
+
+    private Vector3 prevSwingPosition = Vector3.zero;
+    private void CheckSwing(Rigidbody swingBody, bool attackActiv)
+    {
+
+        if (prevSwingPosition == Vector3.zero)
+        {
+            prevSwingPosition = swingBody.position;
+            return;
+        }
+
+        float delta = Vector3.Distance(prevSwingPosition, swingBody.position);
+
+        if(delta > 0.1 && attackActiv)
+        {
+            _swooshSounds.PlayOneShot(_playerSource);
+        }
+
+        prevSwingPosition = swingBody.position;
+        Debug.Log(delta);
     }
 
     private void MoveBoatByForce(Vector3 direction, Vector3 worldPoint)

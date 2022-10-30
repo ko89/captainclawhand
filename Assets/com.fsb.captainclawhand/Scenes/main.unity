@@ -1180,20 +1180,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3908304580540133077, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: _waveSounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f7783159aa9f2c45a8c52f9b9d9ad72,
+        type: 2}
+    - target: {fileID: 3908304580540133077, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: _attackRigidBody
+      value: 
+      objectReference: {fileID: 50989647}
     - target: {fileID: 3908304580540133079, guid: 3c831a0e170dfd84099c5774e874e75d,
         type: 3}
       propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3908304581444233416, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908304581444233416, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908304581444233416, guid: 3c831a0e170dfd84099c5774e874e75d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3908304581444233417, guid: 3c831a0e170dfd84099c5774e874e75d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.397
+      value: 0.446
       objectReference: {fileID: 0}
     - target: {fileID: 3908304581444233417, guid: 3c831a0e170dfd84099c5774e874e75d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.492
+      value: 0.395
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c831a0e170dfd84099c5774e874e75d, type: 3}
