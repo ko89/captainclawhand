@@ -515,8 +515,6 @@ MonoBehaviour:
   _positionLerpSpeed: 0.9
   _gyroDebug: {fileID: 0}
   _gyroDebugMultiplier: 1
-  _paddleStrengtIncrease: 1
-  _paddleStrengthMax: 5
   _paddleStrengthCurve:
     serializedVersion: 2
     m_Curve:
@@ -573,7 +571,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0.25
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.15
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
