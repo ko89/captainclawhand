@@ -30,6 +30,10 @@ public class WaterForce : MonoBehaviour
         {
             float multiplier = Mathf.Pow(depth, 2f);
             _rigidbody.AddForce(_upForce * Time.deltaTime * _upForceStrength * multiplier, ForceMode.Force);
+            
+            //Velocity-based drag (reduces y speed when under-water)
+            float downSpeed = _rigidbody.velocity.y;
+            _rigidbody.AddForce(new Vector3(0, -downSpeed * 0.2f, 0), ForceMode.VelocityChange);
         }
 
 
