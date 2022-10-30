@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    private float _health;
+    private float _health = 100f;
     private float _fillCapacity = 100f;
     private float _fillLevel = 0f;
 

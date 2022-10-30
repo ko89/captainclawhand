@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -72,12 +71,21 @@ public class PlayerController : MonoBehaviour
     {
         // Gyroscope input callback
         var action = new InputAction(binding: "<Gamepad>/gyro");
-        action.performed += HandleGyro;
-        action.Enable();
+        if (action != null)
+        {
+            action.performed += HandleGyro;
+            action.Enable();
+        }
 
         var actionAccel = new InputAction(binding: "<Gamepad>/accel");
-        actionAccel.performed += HandleAccel;
-        actionAccel.Enable();
+        if (actionAccel != null)
+        {
+            actionAccel.performed += HandleAccel;
+            actionAccel.Enable();
+        }
+
+        if (_attackTargetPosition != null)
+            _attackTargetPosition.gameObject.SetActive(_attackActive);
     }
 
     private void Update()
