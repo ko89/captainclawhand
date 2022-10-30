@@ -8,9 +8,14 @@ public class ClawIKController : MonoBehaviour
 {
 
     protected Animator animator;
+    protected int ikLayerIndex;
+    protected float targetWeight;
+    protected float weight;
 
-    public bool ikActive = false;
-    public Transform rightHandObj = null; 
+    public string ikWeightLayer = "";
+    public string ikWeightAnimation = "";
+    public string ikAnimationParameter = "Attack";
+    public Transform rightHandObj = null;
     public Transform leftHandObj = null;
 
     public Transform lookObj = null;
@@ -18,6 +23,7 @@ public class ClawIKController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        ikLayerIndex = animator.GetLayerIndex(ikWeightLayer);
     }
 
     //a callback for calculating IK
@@ -25,36 +31,44 @@ public class ClawIKController : MonoBehaviour
     {
         if (animator)
         {
+            float targetWeight = animator.GetFloat(ikAnimationParameter);
+            weight = Mathf.MoveTowards(weight, targetWeight, Time.deltaTime / 0.2f);
 
-            //if the IK is active, set the position and rotation directly to the goal.
-            if (ikActive)
+
+            var clips = animator.GetCurrentAnimatorStateInfo(ikLayerIndex);
+          
+            /*foreach (var clip in clips)
             {
 
-                // Set the look target position, if one has been assigned
-                if (lookObj != null)
-                {
-                    animator.SetLookAtWeight(1);
-                    animator.SetLookAtPosition(lookObj.position);
-                }
+                Debug.LogWarning(clip.weight);
+            }*/
 
-                // Set the right hand target position and rotation, if one has been assigned
-                if (rightHandObj != null)
-                {
-                    animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-                    animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-                    animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandObj.position);
-                    animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandObj.rotation);
-                }
-
+            // Set the look target position, if one has been assigned
+            if (lookObj != null)
+            {
+                animator.SetLookAtWeight(weight);
+                animator.SetLookAtPosition(lookObj.position);
             }
 
-            //if the IK is not active, set the position and rotation of the hand and head back to the original position
-            else
+            // Set the right hand target position and rotation, if one has been assigned
+            if (rightHandObj != null)
             {
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
-                animator.SetLookAtWeight(0);
+                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, weight);
+                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, weight);
+                animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandObj.position);
+                animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandObj.rotation);
+            }
+
+            // Set the right hand target position and rotation, if one has been assigned
+            if (leftHandObj != null)
+            {
+                animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, weight);
+                animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, weight);
+                animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandObj.position);
+                animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandObj.rotation);
             }
         }
+
+
     }
 }
