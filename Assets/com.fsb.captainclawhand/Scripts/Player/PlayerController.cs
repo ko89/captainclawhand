@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
         }
 
         prevSwingPosition = swingBody.position;
-        Debug.Log(delta);
+        //Debug.Log(delta);
     }
 
     private void MoveBoatByForce(Vector3 direction, Vector3 worldPoint)

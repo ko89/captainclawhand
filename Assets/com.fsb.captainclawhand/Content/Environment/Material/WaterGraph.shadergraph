@@ -466,8 +466,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 588.5,
-            "y": 326.0
+            "x": 591.2000122070313,
+            "y": 325.6000061035156
         },
         "m_Blocks": [
             {
@@ -638,10 +638,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 248.0,
-            "y": 326.0,
-            "width": 207.99993896484376,
-            "height": 360.5
+            "x": 248.00006103515626,
+            "y": 321.60003662109377,
+            "width": 208.0,
+            "height": 359.199951171875
         }
     },
     "m_Slots": [
@@ -2287,10 +2287,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 290.95001220703127,
-            "y": 234.59999084472657,
-            "width": 0.0,
-            "height": 0.0
+            "x": 453.5999755859375,
+            "y": 883.2000122070313,
+            "width": 104.800048828125,
+            "height": 33.60003662109375
         }
     },
     "m_Slots": [
@@ -3206,11 +3206,11 @@
     "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
-    "m_AlphaMode": 0,
+    "m_AlphaMode": 1,
     "m_RenderFace": 2,
     "m_AlphaClip": false,
-    "m_CastShadows": true,
-    "m_ReceiveShadows": true,
+    "m_CastShadows": false,
+    "m_ReceiveShadows": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
 }
